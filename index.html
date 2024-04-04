@@ -96,19 +96,21 @@
     window.document.body.appendChild(linkElement);        
     
     document.body.appendChild(script);
-    
+
     const bridge = vkBridge.default;
     bridge.send("VKWebAppInit", {})
         .then(data => {
-
+            console.log(data);
         })
-        .catch(error => console.log(error));     
+        .catch(error => console.log(error)); 
 
     function initBridge() {
         const bridge = vkBridge.default;
         
         bridge.subscribe(eventHandler); 
-        myGameInstance.SendMessage('VkBridge', 'Initialized', '{"result": "true"}');
+
+        myGameInstance.SendMessage('VkBridge', 'Initialized', 'true'); 
+         
     }
     
     function eventHandler(e) {
@@ -116,7 +118,6 @@
       const { type, data } = e.detail;
 
       console.log(type);
-      console.log(data);        
 
       switch(type) {
 
