@@ -108,7 +108,7 @@
         const bridge = vkBridge.default;
         
         bridge.subscribe(eventHandler); 
-        myGameInstance.SendMessage('VkBridge', 'Initialized', 'true');
+        myGameInstance.SendMessage('VkBridge', 'Initialized', '{"result": "true"}');
     }
     
     function eventHandler(e) {
